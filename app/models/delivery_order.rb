@@ -5,7 +5,7 @@ class DeliveryOrder < ApplicationRecord
 
   def as_json(options={})
   super(
-    methods: [:delivery_date, :delivery_time, :feedback_submitted, :orders ],
+    methods: [:delivery_date, :delivery_time, :feedback_submitted, :order_item ],
     only: [:order_id, :id]
   )
 end
@@ -17,7 +17,7 @@ end
     end
   end
 
-def orders
+def order_item
   order_items = self.order_items.map do |item|
      {
       order_items_id: item.id,
@@ -25,6 +25,8 @@ def orders
     }
   end
 end
+
+
 
 def delivery_date
   serving_datetime.to_date

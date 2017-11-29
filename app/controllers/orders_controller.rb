@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
-    @orders = DeliveryOrder.all
+    @orders = DeliveryOrder.all.order('created_at DESC')
     render json:{ orders: @orders }
   end
 
