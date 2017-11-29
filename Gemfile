@@ -7,6 +7,8 @@ end
 
 # rspec testing
 gem 'rspec-rails'
+# shoulda gem for testing too
+gem 'shoulda'
 # incldue faker to seed fake data
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
